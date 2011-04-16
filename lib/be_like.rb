@@ -1,0 +1,3 @@
+module BeLike
+  # Your code goes here...
+end
