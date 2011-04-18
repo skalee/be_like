@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Sebastian Skalacki"]
   s.email       = ["skalee@gmail.com"]
   s.homepage    = "https://github.com/skalee/be_like"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Like RegExp but for arrays, hashes.}
+  s.description = %q{Allows for matching data structures against given criteria. Very useful for testing JSON responses but may be used anywhere.}
 
 #  s.rubyforge_project = "be_like"
 
@@ -18,6 +18,4 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  s.add_runtime_dependency 'rspec-core', '~>2.0'
 end

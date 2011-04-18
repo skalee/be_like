@@ -5,3 +5,5 @@ gemspec
 
 gem 'aruba', "~> 0.3.5"
 gem 'cucumber', '~>0.10.2'
+gem 'rspec-core', '~>2.0'
+
