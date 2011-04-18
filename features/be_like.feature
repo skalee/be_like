@@ -47,25 +47,28 @@ Feature: Be Like Matcher
     When I run `rspec anystar_spec.rb`
     Then the examples should all pass
 
-  Scenario: A Complicated Structure
-    Given a file named "complicated_spec.rb" with:
+  Scenario: A Complicated Structure Of Arrays
+    Given a file named "arrays_spec.rb" with:
       """
         require "spec_helper"
 
         describe "An array with hashes and strings and bells and whistles" do
-          subject{ [["black", "cat"], nil, {"edgar" => "poe"}] }
+          subject{ [["black", "cat"], nil, [["edgar", "alan"], "poe"]] }
           it{ should     be_like Wildcard.any_array }
           it{ should     be_like Wildcard.anything }
           it{ should_not be_like Wildcard.any_hash }
           it{ should     be_like [Wildcard.anything, Wildcard.anything, Wildcard.anything] }
           it{ should_not be_like [Wildcard.anything, Wildcard.anything, Wildcard.anything, Wildcard.anything] }
-          it{ should     be_like [Wildcard.any_array, nil, Wildcard.any_hash] }
-          it{ should     be_like [["black", "cat"], nil, Wildcard.any_hash] }
-          it{ should_not be_like [["cat", "black"], nil, Wildcard.any_hash] }
-#          it{ should     be_like [anything, nil, {"edgar" => "poe"}] }
-#          it{ should     be_like [[any_string, "cat"], nil, {"edgar" => any_string}] }
-#          it{ should_not be_like [[any_string, "cat"], nil, {any_string => "edgar"}] }
+          it{ should     be_like [Wildcard.not_nil, nil, Wildcard.not_nil] }
+          it{ should     be_like [Wildcard.any_array, nil, Wildcard.any_array] }
+          it{ should_not be_like [["cat", "black"], nil, Wildcard.any_array] }
+          it{ should     be_like [Wildcard.anything, nil, [Wildcard.any_array, Wildcard.any_string]] }
+          it{ should     be_like [["black", "cat"], nil, [Wildcard.any_array, "poe"]] }
+          it{ should     be_like [["black", "cat"], nil, [["edgar", "alan"], "poe"]] }
+          it{ should_not be_like [["black", "cat"], nil, ["edgar", "alan", "poe"]] }
         end
       """
-    When I run `rspec complicated_spec.rb`
+    When I run `rspec arrays_spec.rb`
     Then the examples should all pass
+
+  Scenario:

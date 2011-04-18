@@ -1,5 +1,7 @@
 module Wildcard
-  class TypeWildcard
+  class Wildcard ; end
+
+  class TypeWildcard < Wildcard
     def initialize(type)
       @type = type
     end
@@ -9,7 +11,7 @@ module Wildcard
     end
   end
 
-  class AnythingWildcard
+  class AnythingWildcard < Wildcard
     def initialize(allow_nil)
       @allow_nil = allow_nil
     end

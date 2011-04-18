@@ -16,3 +16,13 @@ class Array
     true
   end
 end
+
+class Hash
+  def reverse_like?(actual)
+    expected_keys_wildcards, expected_keys_exact = self.keys.partition{ |k| k.kind_of?(Wildcard) }
+    actual_keys = Set.new(actual.keys)
+    expected_keys_exact.each do |key|
+
+    end
+  end
+end
