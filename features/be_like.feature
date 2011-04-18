@@ -47,25 +47,25 @@ Feature: Be Like Matcher
     When I run `rspec anystar_spec.rb`
     Then the examples should all pass
 
-#  Scenario: A Complicated Structure
-#    Given a file named "complicated_spec.rb" with:
-#      """
-#        require "spec_helper"
-#
-#        describe "An array with hashes and strings and bells and whistles" do
-#          subject{ [["black", "cat"], nil, {"edgar" => "poe"}] }
-#          it{ should     be_like any_array }
-#          it{ should     be_like anything }
-#          it{ should_not be_like any_hash }
-#          it{ should     be_like [anything, anything, anything] }
-#          it{ should_not be_like [anything, anything, anything, anything] }
-#          it{ should     be_like [any_array, nil, any_hash] }
-#          it{ should     be_like [["black", "cat"], nil, any_hash] }
-#          it{ should_not be_like [["cat", "black"], nil, any_hash] }
+  Scenario: A Complicated Structure
+    Given a file named "complicated_spec.rb" with:
+      """
+        require "spec_helper"
+
+        describe "An array with hashes and strings and bells and whistles" do
+          subject{ [["black", "cat"], nil, {"edgar" => "poe"}] }
+          it{ should     be_like Wildcard.any_array }
+          it{ should     be_like Wildcard.anything }
+          it{ should_not be_like Wildcard.any_hash }
+          it{ should     be_like [Wildcard.anything, Wildcard.anything, Wildcard.anything] }
+          it{ should_not be_like [Wildcard.anything, Wildcard.anything, Wildcard.anything, Wildcard.anything] }
+          it{ should     be_like [Wildcard.any_array, nil, Wildcard.any_hash] }
+          it{ should     be_like [["black", "cat"], nil, Wildcard.any_hash] }
+          it{ should_not be_like [["cat", "black"], nil, Wildcard.any_hash] }
 #          it{ should     be_like [anything, nil, {"edgar" => "poe"}] }
 #          it{ should     be_like [[any_string, "cat"], nil, {"edgar" => any_string}] }
 #          it{ should_not be_like [[any_string, "cat"], nil, {any_string => "edgar"}] }
-#        end
-#      """
-#    When I run `rspec complicated_spec.rb`
-#    Then the examples should all pass
+        end
+      """
+    When I run `rspec complicated_spec.rb`
+    Then the examples should all pass
