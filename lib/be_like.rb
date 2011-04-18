@@ -1,3 +1,2 @@
-module BeLike
-  # Your code goes here...
-end
+require 'be_like/extensions'
+require 'be_like/wildcard'
