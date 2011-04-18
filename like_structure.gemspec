@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "be_like/version"
+require "like_structure/version"
 
 Gem::Specification.new do |s|
-  s.name        = "be-like"
-  s.version     = BeLike::VERSION
+  s.name        = "like-structure"
+  s.version     = LikeStructure::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Sebastian Skalacki"]
   s.email       = ["skalee@gmail.com"]
